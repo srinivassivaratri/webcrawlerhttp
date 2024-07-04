@@ -1,0 +1,15 @@
+{
+  "name": "webcrawlerhttp",
+  "version": "1.0.0",
+  "description": "A program(web crawler) that visits web pages, reads their content, and follows links to find and index new pages.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
