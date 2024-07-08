@@ -2,7 +2,7 @@
   "name": "webcrawlerhttp",
   "version": "1.0.0",
   "description": "A program(web crawler) that visits web pages, reads their content, and follows links to find and index new pages.",
-  "main": "main.js",
+  "type": "module",
   "scripts": {
     "start": "node main.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
