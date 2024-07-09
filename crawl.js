@@ -1,20 +1,30 @@
 import { JSDOM } from 'jsdom'
 
+// use the default arguments to prime the first call
 async function crawlPage(baseURL, currentURL, pages){
-
+    // if this is a url whose domain name is not same, come out of it immediately.
     const baseURLObj = new URL(baseURL)
     const currentURLObj = new URL(currentURL)
     if (baseURLObj.hostname !== currentURLObj.hostname){
         return pages
     }
 
+    // use a consistent URL format
     const normalizedCurrentURL = normalizeURL(currentURL)
+
+
+    // if we have already visited this page
+    // just increase the count and don't repeat
+    // the http request
     if (pages[normalizedCurrentURL] > 0){
         pages[normalizedCurrentURL] ++
         return pages
     }
-    pages[normalizedCurrentURL] = 1
 
+    // initialize this page in the map
+    // since it doesn't exist yet
+    pages[normalizedCurrentURL] = 1
+    // fetch and parse the html of the currentURL
     console.log(`actively crawling currentURL: ${currentURL}`)
 
     try {
@@ -31,7 +41,7 @@ async function crawlPage(baseURL, currentURL, pages){
             return pages
         }
         const htmlBody = await resp.text()
-
+        // recur through the page's links
         const nextURLs = getURLsFromHTML(htmlBody, baseURL)
 
         for (const nextURL of nextURLs) {

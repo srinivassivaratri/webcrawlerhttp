@@ -1,3 +1,5 @@
+// printReport takes a dictionary of pages and prints them
+// to the console in a human-friendly way
 function printReport(pages){
     console.log('=======')
     console.log('REPORT!!!...')
@@ -13,6 +15,10 @@ function printReport(pages){
     console.log('=======')
 }
 
+
+// sortPages sorts a dictionary of pages
+// into a list of tuples (url, count)
+// with the highest counts first in the list
 function sortPages(pages){
     const pagesArr = Object.entries(pages)
     pagesArr.sort((a, b) => {
