@@ -2,8 +2,6 @@
 
 A program(web crawler) that visits web pages, reads their content, and follows links to find and index new pages.
 
-# Web Crawler Project
-
 ## Why This Project?
 
 We're building a Web Crawler in JavaScript using Node.js to help websites rank better in Google Search. Good internal linking between pages on a website is crucial for SEO, and this tool will help website owners understand and improve their internal linking structure.
@@ -79,7 +77,3 @@ Run `npm test` to execute the Jest test suite.
 ## Contributing
 
 Feel free to submit issues and pull requests. For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
