@@ -42,7 +42,7 @@ test('getURLsFromHTML absolute', () => {
     const actual = getURLsFromHTML(inputHTMLBody, inputBaseURL)
     const expected = ['https://blog.boot.dev/']
     expect(actual).toEqual(expected)
-} )
+})
 
 test('getURLsFromHTML relative', () => {
     const inputHTMLBody = `
@@ -55,7 +55,7 @@ test('getURLsFromHTML relative', () => {
     const actual = getURLsFromHTML(inputHTMLBody, inputBaseURL)
     const expected = ['https://blog.boot.dev/path/one']
     expect(actual).toEqual(expected)
-} )
+})
 
 test('getURLsFromHTML both', () => {
     const inputHTMLBody = `
@@ -69,7 +69,7 @@ test('getURLsFromHTML both', () => {
     const actual = getURLsFromHTML(inputHTMLBody, inputBaseURL)
     const expected = ['https://blog.boot.dev/path/one', 'https://blog.boot.dev/path/two']
     expect(actual).toEqual(expected)
-} )
+})
 
 
 test('getURLsFromHTML invalid', () => {
@@ -83,4 +83,4 @@ test('getURLsFromHTML invalid', () => {
     const actual = getURLsFromHTML(inputHTMLBody, inputBaseURL)
     const expected = []
     expect(actual).toEqual(expected)
-} )
+})
