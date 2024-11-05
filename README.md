@@ -1,64 +1,107 @@
-# Web Crawler
+# 🕷️ SEOcrawl
 
-## Task
+A lightning-fast web crawler that helps website owners optimize their SEO by analyzing and visualizing internal linking structures.
 
-We're building a web crawler that helps website owners improve their SEO by analyzing internal linking structures.
+## Why?
 
-## Spec
+Internal linking is crucial for SEO, but manually tracking links across a large website is time-consuming and error-prone. SEOcrawl automates this process by:
 
-Our web crawler should:
-1. Start from a given URL
-2. Visit web pages
-3. Read their content
-4. Extract and follow links to find new pages
-5. Index the pages it finds
-6. Generate a report showing how many times each page was linked to
+- Discovering all pages within your domain
+- Analyzing link relationships
+- Identifying orphaned pages
+- Generating detailed reports on link distribution
+- Helping prioritize content that needs more internal links
 
-## Plan
+## 🚀 Quick Start
 
-1. Set up the project
-   - Initialize a Node.js project
-   - Set up version control with Git
-   - Use NVM for consistent Node.js versioning
+### Install dependencies
 
-2. Implement core functionality
-   - Create a function to normalize URLs
-   - Develop a function to extract links from HTML
-   - Build the main crawling function
+```bash
+npm install
+```
 
-3. Add reporting
-   - Create a function to sort and display crawl results
+### Run the crawler
 
-4. Implement testing
-   - Set up Jest for unit testing
-   - Write tests for each main function
+```bash
+npm start https://your-website.com
+```
 
-## Code
+The crawler will analyze your site and generate a report showing how many times each page is linked to.
 
-### Setup
+## 📖 Usage
 
-1. Clone this repository
-2. Run `npm install` to install dependencies
-3. Use `npm start <BASE_URL>` to run the crawler (replace `<BASE_URL>` with the website you want to crawl)
-4. View the report in your console
+### Command Line Arguments
 
-### Testing
+The crawler accepts a single argument - the base URL to start crawling from:
 
-Run `npm test` to execute the Jest test suite.
+```bash
+npm start <BASE_URL>
+```
 
-### Dependencies
+### Example Output
 
-- Node.js (v21.2.0)
-- Jest (for testing)
-- JSDOM (for HTML parsing)
+```
+=======
+REPORT!!!...
+=======
+Found 12 links to page: blog.example.com/popular-post
+Found 8 links to page: blog.example.com/about
+Found 3 links to page: blog.example.com/contact
+=======
+END REPORT...
+=======
+```
+
+### Features
+
+- ✨ Respects domain boundaries (won't crawl external sites)
+- 🔍 Normalizes URLs for accurate counting
+- 🏃‍♂️ Efficient crawling with async/await
+- 🎯 Handles both relative and absolute URLs
+- 📊 Sorted reports by link frequency
+- 🚫 Error handling for invalid URLs and non-HTML responses
+
+## 🤝 Contributing
+
+### Setup Development Environment
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/seocrawl.git
+cd seocrawl
+```
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Run tests
+```bash
+npm test
+```
 
 ### Project Structure
 
-- `main.js`: Entry point of the application
-- `crawl.js`: Contains the core crawling logic
-- `report.js`: Handles the generation and display of the crawl report
-- `crawl.test.js` and `report.test.js`: Test files for the respective modules
+- `main.js` - Entry point and CLI handling
+- `crawl.js` - Core crawling logic including URL normalization and HTML parsing
+- `report.js` - Report generation and sorting
+- `crawl.test.js` - Tests for URL handling and HTML parsing
+- `report.test.js` - Tests for report sorting functionality
 
-### Contributing
+### Core Functions
 
-Feel free to submit issues and pull requests. For major changes, please open an issue first to discuss what you would like to change.
+- `normalizeURL()` - Standardizes URLs for consistent counting
+- `getURLsFromHTML()` - Extracts and validates links from HTML content
+- `crawlPage()` - Main crawling logic with recursive link following
+- `printReport()` - Generates human-readable output
+- `sortPages()` - Sorts pages by link count
+
+### Technical Requirements
+
+- Node.js v21.2.0 or higher
+- Dependencies:
+  - Jest (testing)
+  - JSDOM (HTML parsing)
+
+For major changes, please open an issue first to discuss what you'd like to change.
